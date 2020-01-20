@@ -1,7 +1,7 @@
 # Личный проект «Куплю. Продам» [![Build status][travis-image]][travis-url]
 
 * Студент: [Родион Демихов](https://up.htmlacademy.ru/nodejs/3/user/419015).
-* Наставник: `Неизвестно`.
+* Наставник: [Константин Мамаев](https://htmlacademy.ru/profile/meison).
 
 ---
 
