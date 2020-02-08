@@ -2,8 +2,10 @@
 
 const fs = require(`fs`);
 const {getRandomInt, shuffle} = require(`../../util`);
+const {ExitCode} = require(`../../constants`);
 
 const DEFAULT_COUNT = 1;
+const MAX_COUNT = 1000;
 const FILE_NAME = `mocks.json`;
 
 const TITLES = [
@@ -80,6 +82,12 @@ module.exports = {
   run(args) {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
+
+    if (countOffer > MAX_COUNT) {
+      console.error(`Не больше 1000 объявлений.`);
+      process.exit(ExitCode.ERROR);
+    }
+
     const offers = generateOffers(countOffer);
     const content = JSON.stringify(offers);
 
