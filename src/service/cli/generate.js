@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require(`fs`);
-const {getRandomInt, shuffle} = require(`../util`);
+const {getRandomInt, shuffle} = require(`../../util`);
 
 const DEFAULT_COUNT = 1;
 const FILE_NAME = `mocks.json`;
