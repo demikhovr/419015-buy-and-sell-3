@@ -91,7 +91,7 @@ module.exports = {
     const offers = generateOffers(countOffer);
     const content = JSON.stringify(offers);
 
-    fs.writeFile(FILE_NAME, content, (err) => {
+    fs.writeFile(`../${FILE_NAME}`, content, (err) => {
       if (err) {
         return console.error(`Can't write data to file...`);
       }
