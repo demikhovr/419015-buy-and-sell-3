@@ -66,16 +66,14 @@ const PictureRestrict = {
 
 const getPictureFileName = (number) => number > 10 ? `item${number}.jpg` : `item0${number}.jpg`;
 
-const generateOffers = (count) => {
-  return Array(count).fill({}).map(() => ({
-    title: TITLES[getRandomInt(0, TITLES.length - 1)],
-    picture: getPictureFileName(getRandomInt(PictureRestrict.MIN, PictureRestrict.MAX)),
-    description: shuffle(SENTENCES).slice(0, MAX_SENTENCES).join(` `),
-    type: Object.values(OfferType)[Math.floor(Math.random() * Object.values(OfferType).length)],
-    sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
-    category: [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]],
-  }));
-};
+const generateOffers = (count) => Array(count).fill({}).map(() => ({
+  title: TITLES[getRandomInt(0, TITLES.length - 1)],
+  picture: getPictureFileName(getRandomInt(PictureRestrict.MIN, PictureRestrict.MAX)),
+  description: shuffle(SENTENCES).slice(0, MAX_SENTENCES).join(` `),
+  type: Object.values(OfferType)[Math.floor(Math.random() * Object.values(OfferType).length)],
+  sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
+  category: [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]],
+}));
 
 module.exports = {
   name: `--generate`,
@@ -91,7 +89,7 @@ module.exports = {
     const offers = generateOffers(countOffer);
     const content = JSON.stringify(offers);
 
-    fs.writeFile(`../${FILE_NAME}`, content, (err) => {
+    fs.writeFile(FILE_NAME, content, (err) => {
       if (err) {
         return console.error(`Can't write data to file...`);
       }
