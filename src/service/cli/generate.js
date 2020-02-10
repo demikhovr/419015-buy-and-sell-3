@@ -55,9 +55,17 @@ const generateOffers = ({count, titles, sentences, categories}) => (
 module.exports = {
   name: `--generate`,
   async run(args) {
-    const titles = await readContent(FILE_TITLES_PATH);
-    const sentences = await readContent(FILE_SENTENCES_PATH);
-    const categories = await readContent(FILE_CATEGORIES_PATH);
+    const promises = [
+      FILE_TITLES_PATH,
+      FILE_SENTENCES_PATH,
+      FILE_CATEGORIES_PATH,
+    ].map(readContent);
+
+    const [
+      titles,
+      sentences,
+      categories,
+    ] = await Promise.all(promises);
 
     const [countArg] = args;
     const count = Number.parseInt(countArg, 10) || DEFAULT_COUNT;
