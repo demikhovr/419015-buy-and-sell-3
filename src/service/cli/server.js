@@ -33,7 +33,7 @@ const handleClientConnect = async (req, res) => {
   switch (req.url) {
     case `/`:
       try {
-        const fileContent = await fs.readFile(FILENAME);
+        const fileContent = await fs.readFile(FILENAME, `utf8`);
         const mocks = JSON.parse(fileContent);
         const message = `<ul>${mocks.map((post) => `<li>${post.title}</li>`).join(``)}</ul>`;
         sendResponse(res, HttpCode.OK, message);
