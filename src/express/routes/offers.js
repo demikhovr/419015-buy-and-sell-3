@@ -1,6 +1,7 @@
 'use strict';
 
 const {Router} = require(`express`);
+
 const offersRouter = new Router();
 
 offersRouter.get(`/:id`, (req, res) => res.send(`/offers/${req.params.id}`));
