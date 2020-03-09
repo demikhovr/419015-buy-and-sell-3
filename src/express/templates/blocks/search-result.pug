@@ -1,0 +1,20 @@
+include ticket
+
+mixin searchResult(results)
+  section.search-results
+    h1.visually-hidden Результаты поиска
+    .search-results__wrapper
+      if results.length
+        p.search-results__label
+          | Найдено&nbsp;
+          span.js-results #{results.length} публикации
+        ul.search-results__list
+          each result in results
+            li.search-results__item
+              +ticket(result)
+      else
+        .search-results__message
+          p
+            | Не найдено
+            br
+            | ни одной публикации

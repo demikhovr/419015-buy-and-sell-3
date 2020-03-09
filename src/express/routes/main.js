@@ -1,12 +1,31 @@
 'use strict';
 
 const {Router} = require(`express`);
+const ticketsMocks = require(`../../mocks/tickets`);
+const searchResultsMocks = require(`../../mocks/searchResults`);
+const categoriesMocks = require(`../../mocks/categories`);
 
-const authRouter = new Router();
+const mainRouter = new Router();
 
-authRouter.get(`/`, (req, res) => res.send(`/`));
-authRouter.get(`/register`, (req, res) => res.send(`/register`));
-authRouter.get(`/login`, (req, res) => res.send(`/login`));
-authRouter.get(`/search`, (req, res) => res.send(`/search`));
+mainRouter.get(`/register(.html)?`, (req, res) => res.render(`pages/sign-up`));
+mainRouter.get(`/login(.html)?`, (req, res) => res.render(`pages/login`));
 
-module.exports = authRouter;
+mainRouter.get([`/`, `/index`, `/index.html`, `/main`, `/main.html`], (req, res) => {
+  const pageContent = {
+    categories: categoriesMocks,
+    tickets: ticketsMocks,
+  };
+
+  res.render(`pages/main`, pageContent);
+});
+
+mainRouter.get(`/search(.html)?`, (req, res) => {
+  const pageContent = {
+    results: searchResultsMocks,
+    tickets: ticketsMocks,
+  };
+
+  res.render(`pages/search-result`, pageContent);
+});
+
+module.exports = mainRouter;

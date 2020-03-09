@@ -1,0 +1,26 @@
+extends ../layout
+include ../blocks/category
+include ../blocks/ticket
+
+block header
+  include ../blocks/header
+block content
+  section.categories-list
+    h1.visually-hidden Сервис объявлений "Куплю - продам"
+    ul.categories-list__wrapper
+      each category, i in categories
+        li.categories-list__item
+          - const isActive = i === index
+          +category(category, isActive)
+  section.tickets-list
+    h2.visually-hidden Предложения из категории #{category.label}
+    .tickets-list__wrapper
+      .tickets-list__header
+        p.tickets-list__title #{category.label}&nbsp;
+        b.js-qty= category.amount
+      ul
+        each ticket in tickets
+          li.tickets-list__item
+            +ticket(ticket)
+block footer
+  include ../blocks/footer

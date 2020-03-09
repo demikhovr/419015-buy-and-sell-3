@@ -1,0 +1,18 @@
+extends ../layout
+include ../blocks/ticket
+
+block header
+  include ../blocks/header
+block content
+  section.tickets-list
+    h2.visually-hidden Самые новые предложения
+    .tickets-list__wrapper
+      .tickets-list__header
+        a.tickets-list__btn.btn.btn--big(href="#")
+          span Новая публикация
+      ul
+        each ticket in tickets
+          li.tickets-list__item.js-card
+            +ticket(ticket)
+block footer
+  include ../blocks/footer
