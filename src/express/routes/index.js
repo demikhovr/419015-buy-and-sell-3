@@ -1,6 +1,7 @@
 'use strict';
 
 const {Router} = require(`express`);
+const {HttpCode} = require(`../../constants`);
 const mainRouter = require(`./main`);
 const myRouter = require(`./my`);
 const offersRouter = require(`./offers`);
@@ -17,7 +18,7 @@ router.use((req, res) => {
     bodyClass: `body-not-found`,
   };
 
-  res.status(404);
+  res.status(HttpCode.NOT_FOUND);
   res.render(`pages/404`, pageContent);
 });
 
@@ -27,7 +28,7 @@ router.use((req, res) => {
     bodyClass: `body-server`,
   };
 
-  res.status(500);
+  res.status(HttpCode.INTERNAL_SERVER_ERROR);
   res.render(`pages/500`, pageContent);
 });
 
