@@ -1,0 +1,6 @@
+mixin announceCard(announce)
+  a.announce-card(href="#")
+    h2.announce-card__title= announce.title
+    span.announce-card__info
+      span.announce-card__price ₽ #{announce.price}
+      span.announce-card__type= announce.type

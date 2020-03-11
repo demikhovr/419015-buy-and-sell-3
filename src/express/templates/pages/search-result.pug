@@ -1,0 +1,20 @@
+extends ../layout
+include ../blocks/search-result
+include ../blocks/ticket
+
+block header
+  include ../blocks/header
+block content
+  +searchResult(results)
+  section.tickets-list
+    h2.visually-hidden Самые новые предложения
+    .tickets-list__wrapper
+      .tickets-list__header
+        p.tickets-list__title Самое свежее
+        a.tickets-list__link(href="#") Еще 25
+      ul
+        each ticket in tickets
+          li.tickets-list__item
+            +ticket(ticket)
+block footer
+  include ../blocks/footer

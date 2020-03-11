@@ -1,0 +1,23 @@
+extends ../layout
+include ../blocks/comment
+include ../blocks/announce-card
+
+block header
+  include ../blocks/header
+block content
+  section.comments
+    .comments__wrapper
+      h1.visually-hidden Страница комментариев
+      if offers.length
+        each offer in offers
+          .comments__block
+            .comments__header
+              +announceCard(offer)
+            ul.comments-list
+              each comment in offer.comments
+                li.js-card
+                  +comment(comment)
+      else
+        p.comments__message У ваших публикаций еще нет комментариев.
+block footer
+  include ../blocks/footer
