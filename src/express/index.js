@@ -6,11 +6,12 @@ const chalk = require(`chalk`);
 const router = require(`./routes`);
 const {DEFAULT_PORT} = require(`../constants`);
 
-const TEMPLATES_DIR = path.join(__dirname, `templates`);
+const TEMPLATES_DIR = path.resolve(__dirname, `templates`);
+const PUBLIC_DIR = path.resolve(__dirname, `public`);
 
 const app = express();
 
-app.use(express.static(`markup`));
+app.use(express.static(PUBLIC_DIR));
 app.use(router);
 
 app.set(`views`, TEMPLATES_DIR);
