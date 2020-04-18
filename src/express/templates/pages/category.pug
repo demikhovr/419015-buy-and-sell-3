@@ -1,9 +1,7 @@
 extends ../layout
-include ../blocks/category
-include ../blocks/ticket
+include ../partials/category
+include ../partials/ticket
 
-block header
-  include ../blocks/header
 block content
   section.categories-list
     h1.visually-hidden Сервис объявлений "Куплю - продам"
@@ -22,5 +20,3 @@ block content
         each ticket in tickets
           li.tickets-list__item
             +ticket(ticket)
-block footer
-  include ../blocks/footer

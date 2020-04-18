@@ -1,9 +1,7 @@
 extends ../layout
-include ../blocks/category
-include ../blocks/ticket
+include ../partials/category
+include ../partials/ticket
 
-block header
-  include ../blocks/header
 block content
   if tickets.length
     section.categories-list
@@ -34,6 +32,4 @@ block content
     .message
       .message__text
         p На сайте еще не опубликовано ни одного объявления.
-      a.message__link.btn.btn--big(href="/sign-in") Вход и регистрация
-block footer
-  include ../blocks/footer
+      a.message__link.btn.btn--big(href="/login") Вход и регистрация

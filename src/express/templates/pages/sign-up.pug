@@ -1,13 +1,11 @@
 extends ../layout
 
-block header
-  include ../blocks/header
 block content
   section.sign-up
     form.sign-up__form.form(action="#" method="post" enctype="multipart/form-data" autocomplete="off")
       .sign-up__title
         h2 Регистрация
-        a.sign-up__link(href="login.html") Вход
+        a.sign-up__link(href="/login") Вход
       .sign-up__avatar-container.js-preview-container
         .sign-up__avatar.js-preview
         .sign-up__field-avatar
@@ -32,5 +30,3 @@ block content
         label(for="user-password-again") Пароль еще раз
         span Обязательное поле
       button.sign-up__button.btn.btn--medium.js-button(type="submit" disabled="") Создать аккаунт
-block footer
-  include ../blocks/footer

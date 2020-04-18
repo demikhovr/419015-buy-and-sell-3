@@ -1,9 +1,7 @@
 extends ../layout
-include ../blocks/search-result
-include ../blocks/ticket
+include ../partials/search-result
+include ../partials/ticket
 
-block header
-  include ../blocks/header
 block content
   +searchResult(results)
   section.tickets-list
@@ -16,5 +14,3 @@ block content
         each ticket in tickets
           li.tickets-list__item
             +ticket(ticket)
-block footer
-  include ../blocks/footer

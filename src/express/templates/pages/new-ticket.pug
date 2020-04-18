@@ -1,7 +1,5 @@
 extends ../layout
 
-block header
-  include ../blocks/header
 block content
   section.ticket-form
     .ticket-form__wrapper
@@ -45,5 +43,3 @@ block content
                   input#sell-field.visually-hidden(type="radio" name="action" value="sell")
                   label.switch__button(for="sell-field") Продам
           button.form__button.btn.btn--medium.js-button(type="submit" disabled="") Опубликовать
-block footer
-  include ../blocks/footer
