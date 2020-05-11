@@ -11,7 +11,7 @@ const API_PREFIX = `/api`;
 
 module.exports = {
   name: `--server`,
-  async run(args) {
+  run(args) {
     const [portArg] = args;
     const port = Number.parseInt(portArg, 10) || DEFAULT_PORT;
 

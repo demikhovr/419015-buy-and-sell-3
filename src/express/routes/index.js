@@ -12,14 +12,7 @@ router.use(`/`, mainRouter);
 router.use(`/my(.html)?`, myRouter);
 router.use(`/offers(.html)?`, offersRouter);
 
-router.use((req, res) => {
-  res.status(HttpCode.NOT_FOUND);
-  res.render(`pages/errors/404`);
-});
-
-router.use((req, res) => {
-  res.status(HttpCode.INTERNAL_SERVER_ERROR);
-  res.render(`pages/errors/500`);
-});
+router.use((req, res) => res.status(HttpCode.NOT_FOUND).render(`pages/errors/404`));
+router.use((req, res) => res.status(HttpCode.INTERNAL_SERVER_ERROR).render(`pages/errors/500`));
 
 module.exports = router;
