@@ -2,7 +2,7 @@ mixin comment(comment)
   .comment-card
     .comment-card__header
       a.comment-card__avatar.avatar(href="#")
-        img(src=`img/${comment.avatar}.jpg` srcset=`img/${comment.avatar}@2x.jpg 2x` alt="Аватар пользователя")
+        img(src=`/img/${comment.avatar}.jpg` srcset=`/img/${comment.avatar}@2x.jpg 2x` alt="Аватар пользователя")
       p.comment-card__author= comment.author
     .comment-card__content
       p

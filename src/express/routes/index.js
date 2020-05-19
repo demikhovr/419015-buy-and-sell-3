@@ -12,24 +12,7 @@ router.use(`/`, mainRouter);
 router.use(`/my(.html)?`, myRouter);
 router.use(`/offers(.html)?`, offersRouter);
 
-router.use((req, res) => {
-  const pageContent = {
-    htmlClass: `html-not-found`,
-    bodyClass: `body-not-found`,
-  };
-
-  res.status(HttpCode.NOT_FOUND);
-  res.render(`pages/404`, pageContent);
-});
-
-router.use((req, res) => {
-  const pageContent = {
-    htmlClass: `html-server`,
-    bodyClass: `body-server`,
-  };
-
-  res.status(HttpCode.INTERNAL_SERVER_ERROR);
-  res.render(`pages/500`, pageContent);
-});
+router.use((req, res) => res.status(HttpCode.NOT_FOUND).render(`pages/errors/404`));
+router.use((req, res) => res.status(HttpCode.INTERNAL_SERVER_ERROR).render(`pages/errors/500`));
 
 module.exports = router;

@@ -1,8 +1,6 @@
 extends ../layout
-include ../blocks/ticket
+include ../partials/ticket
 
-block header
-  include ../blocks/header
 block content
   section.tickets-list
     h2.visually-hidden Самые новые предложения
@@ -14,5 +12,3 @@ block content
         each ticket in tickets
           li.tickets-list__item.js-card
             +ticket(ticket)
-block footer
-  include ../blocks/footer
